@@ -13,7 +13,7 @@ if(!$conn) {
 }
 
 // Select query
-$sql = 'SELECT * FROM Course';
+$sql = 'SELECT CourseCode, Instructor, Room FROM Course';
 
 if($result = $conn->query($sql)) {
     while($data = $result->fetch_object()) {

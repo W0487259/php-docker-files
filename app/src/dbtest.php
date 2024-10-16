@@ -17,7 +17,9 @@ $mydatabase = 'courses';
 $conn = new mysqli($host, $user, $pass, $mydatabase);
 
 // select query
-$sql = 'SELECT * FROM users';
+// $sql = 'SELECT * FROM users';
+
+$sql = 'SELECT CourseCode, Instructor, Room FROM Course';
 
 if ($result = $conn->query($sql)) {
     while ($data = $result->fetch_object()) {

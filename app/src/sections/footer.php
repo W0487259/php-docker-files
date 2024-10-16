@@ -1,1 +1,1 @@
-<footer><p>Nova Scotia Community College 2023 ©</p></footer>
+<footer><p>Nova Scotia Community College 2024 ©</p></footer>
