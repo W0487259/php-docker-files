@@ -53,5 +53,4 @@ include("conn.php");
     include './sections/footer.php'
     ?>
 </body>
-
 </html>
