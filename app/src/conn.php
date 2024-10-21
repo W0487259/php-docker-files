@@ -10,5 +10,3 @@ $pass = "super_secret123?";
 
 // Database name
 $name = 'courses';
-
-
