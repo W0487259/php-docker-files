@@ -16,7 +16,7 @@ $pageName = 'My Courses';
     <?php include './sections/header.php' ?>
     <?php include './sections/nav.php' ?>
     <?php
-    include ("dbInfo.php");
+    include ("conn.php");
 
     // Database name
     $name = 'courses';

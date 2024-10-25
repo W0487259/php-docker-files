@@ -27,8 +27,8 @@ CREATE TABLE Instructor (
 );
 CREATE TABLE Program (
     ProgramId int NOT NULL AUTO_INCREMENT,
-    Code VARCHAR(4),
-    Title VARCHAR(100),
+    Code VARCHAR(4) NOT NULL UNIQUE,
+    Title VARCHAR(100) NOT NULL UNIQUE,
     PRIMARY KEY (ProgramId)
 );
 CREATE TABLE Course (
