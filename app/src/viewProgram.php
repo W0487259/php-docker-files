@@ -6,16 +6,16 @@
     Author: Evan van Oostrum
     Date: 10/21/2024
 
-    Last edited: 10/21/2024
+    Last edited: 10/28/2024
     Filename: viewProgram.php
     -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Program</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <?php include './sections/header.php'; ?>
     <?php include './sections/nav.php'; ?>
     <?php include("conn.php"); ?>
     <div style="background-color:yellow; border: 3px solid yellow">

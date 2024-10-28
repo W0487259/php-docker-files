@@ -1,0 +1,1 @@
+<footer><p>Nova Scotia Community College 2024 ©</p></footer>

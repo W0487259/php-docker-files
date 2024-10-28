@@ -1,12 +1,22 @@
 <?php
 include("conn.php");
 
+/**
+ * Insert Program File
+ * Author: Evan van Oostrum
+ * Date: 10/21/2024
+ * 
+ * Last edited: 10/28/2024
+ * Filename: insertProgram.php
+ */
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Connecting to the database server...<br/>";
 
+
     // Set parameters
-    $programCode = $_POST["programCode"];
-    $programTitle = $_POST["programTitle"];
+    $programCode = htmlspecialchars($_POST["programCode"]);
+    $programTitle = htmlspecialchars($_POST["programTitle"]);
 
     $conn = new mysqli($host, $user, $pass, $name);
     if(!$conn) { // Check if the connection is valid
