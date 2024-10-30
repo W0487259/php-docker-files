@@ -6,17 +6,20 @@ include("conn.php");
  * Author: Evan van Oostrum
  * Date: 10/21/2024
  * 
- * Last edited: 10/28/2024
+ * Last edited: 10/30/2024
  * Filename: insertProgram.php
  */
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Connecting to the database server...<br/>";
 
-
     // Set parameters
     $programCode = htmlspecialchars($_POST["programCode"]);
+    if(!preg_match('/[A-Z]{4}/', $programCode)) {
+        die("Program code is invalid!");
+    }
     $programTitle = htmlspecialchars($_POST["programTitle"]);
+    
 
     $conn = new mysqli($host, $user, $pass, $name);
     if(!$conn) { // Check if the connection is valid
@@ -41,10 +44,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
     echo "<p><a href='./viewProgram.php'>View Programs</a></p>";
 
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+
 }
-
-
-
 
 
 

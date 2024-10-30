@@ -1,3 +1,7 @@
+<?php
+$activePage = 'view program';
+$pageName = 'View Program';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +10,9 @@
     Author: Evan van Oostrum
     Date: 10/21/2024
 
-    Last edited: 10/28/2024
+    Last edited: 10/30/2024
     Filename: viewProgram.php
     -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Program</title>
@@ -61,8 +64,6 @@
 
     echo "</table>";
     ?>
-
-    
 
 </body>
 </html>
