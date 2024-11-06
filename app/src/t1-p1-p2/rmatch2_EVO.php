@@ -17,7 +17,7 @@
 </head>
 <body>
     <h1>Strings</h1>
-    <form method="post" action="/rmatch2.php">
+    <form method="post" action="rmatch2.php"> <!-- removed '/' from action to make the filepath relative -->
         <div>
             <label for="tarNames1">Enter names separated by commas here:</label>
             <textarea name="tarNames1" id="tarNames1" name="stringsTextarea" cols="30" rows="10"></textarea>

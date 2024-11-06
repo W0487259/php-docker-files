@@ -44,8 +44,8 @@ CREATE TABLE Course (
     Program int,
     PRIMARY KEY (CourseId),
     CONSTRAINT fk_Course_Program FOREIGN KEY (Program) REFERENCES Program (ProgramId),
-    CONSTRAINT fkCourse_Instructor FOREIGN KEY (Instructor) REFERENCES Instructor (InstructorId),
-    FOREIGN KEY (Room) REFERENCES Room (RoomId)
+    CONSTRAINT fk_Course_Instructor FOREIGN KEY (Instructor) REFERENCES Instructor (InstructorId) ON DELETE SET NULL,
+    CONSTRAINT fk_Course_Room FOREIGN KEY (Room) REFERENCES Room (RoomId) ON DELETE SET NULL
 );
 -- Naming Foreign Keys
 -- fk_[referencing table name]_[referenced table name]_[referencing field name]?

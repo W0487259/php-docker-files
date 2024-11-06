@@ -4,6 +4,9 @@ $namesList = $_POST["tarStrings"];
 
 $namesArray = explode(",", $namesList);
 
+// shuffle() -> Randomly shuffles an array
+// Would be faster when test-taking, but slower with large arrays
+
 $arrLen = sizeof($namesArray);
 echo $arrLen;
 
