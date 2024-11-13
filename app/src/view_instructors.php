@@ -1,4 +1,6 @@
 <?php
+$activePage = 'view instructors';
+$pageName = 'View Instructors';
 include("conn.php");
 
 $conn = new mysqli($host, $user, $pass, $name);

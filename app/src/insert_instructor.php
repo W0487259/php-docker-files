@@ -1,12 +1,20 @@
 <?php
 include("conn.php");
 
+/**
+ * Insert Instructor File
+ * Author: Evan van Oostrum
+ * Date: 10/30/2024
+ * 
+ * Last edited: 11/13/2024
+ * Filename: insert_instructor.php
+ */
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Connecting to the database server...<br/>";
 
     $firstName = htmlspecialchars($_POST["firstName"]);
     $lastName = htmlspecialchars($_POST["lastName"]);
-
 
     $conn = new mysqli($host, $user, $pass, $name);
     if(!$conn) { // Check if the connection is valid

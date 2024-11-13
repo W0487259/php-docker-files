@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $conn->close();
-    echo "<p><a href='./viewProgram.php'>View Programs</a></p>";
+    echo "<p><a href='./view_program.php'>View Programs</a></p>";
 
     function test_input($data) {
         $data = trim($data);

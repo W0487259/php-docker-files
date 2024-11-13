@@ -1,17 +1,17 @@
 <?php
-$activePage = 'view program';
-$pageName = 'View Program';
+$activePage = 'delete program';
+$pageName = 'Delete Program';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- 
-    View Program File
+    Delete Program File
     Author: Evan van Oostrum
-    Date: 10/21/2024
+    Date: 11/13/2024
 
-    Last edited: 10/30/2024
-    Filename: viewProgram.php
+    Last edited: 11/13/2024
+    Filename: delete_program.php
     -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

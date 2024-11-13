@@ -1,3 +1,7 @@
+<?php
+$activePage = 'add room';
+$pageName = 'Add Room';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
     Author: Evan van Oostrum
     Date: 10/30/2024
 
-    Last edited: 11/04/2024
+    Last edited: 11/13/2024
     Filename: add_room.php
     -->
     <meta charset="UTF-8">

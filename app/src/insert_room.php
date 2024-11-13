@@ -7,7 +7,7 @@ include("conn.php");
  * Date: 10/30/2024
  * 
  * Last edited: 11/04/2024
- * Filename: insertRoom.php
+ * Filename: insert_room.php
  */
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
