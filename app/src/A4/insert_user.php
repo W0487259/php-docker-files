@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             PostalCode, Country, Phone, Email, Newsletter) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
     );
-    $stmt->bind_param("sssssssssb", $firstName, $lastName, $street,
+    $stmt->bind_param("sssssssssi", $firstName, $lastName, $street,
         $city, $province, $postalCode, $country, $phone, $email, $subscribed);
 
     echo "<br>First name: " . $firstName . "<br>"
