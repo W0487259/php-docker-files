@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<favouritemovies>
+<movie>
+    <title lang="en">Star Wars: Episode I - The Phantom Menace</title>
+    <picture>https://en.wikipedia.org/wiki/Star_Wars:_Episode_I_%E2%80%93_The_Phantom_Menace#/media/File:Star_Wars_Phantom_Menace_poster.jpg</picture>
+    <director>George Lucas</director>
+    <mainactor>Liam Neeson</mainactor>
+    <imdb>https://www.imdb.com/title/tt0120915/</imdb>
+    <year>1999</year>
+    <genre>Epic Space Opera</genre>
+</movie>
+
+
+</favouritemovies>
