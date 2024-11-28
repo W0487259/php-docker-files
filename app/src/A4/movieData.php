@@ -47,49 +47,49 @@ $movies = [
         "genre" => "Animated Comedy Western"
     ],
     [
-        "title" => "",
-        "picture" => "",
-        "director" => "",
-        "mainactor" => "",
-        "imdb" => "",
-        "year" => 2005,
-        "genre" => ""
+        "title" => "Pirates of the Caribbean: Dead Men Tell No Tales",
+        "picture" => "https://upload.wikimedia.org/wikipedia/en/2/21/Pirates_of_the_Caribbean%2C_Dead_Men_Tell_No_Tales.jpg",
+        "director" => "Joachim Rønning",
+        "mainactor" => "Johnny Depp",
+        "imdb" => "https://www.imdb.com/title/tt1790809/",
+        "year" => 2017,
+        "genre" => "Swashbuckler Fantasy"
     ],
     [
-        "title" => "",
-        "picture" => "",
-        "director" => "",
-        "mainactor" => "",
-        "imdb" => "",
-        "year" => 2005,
-        "genre" => ""
+        "title" => "Despicable Me",
+        "picture" => "https://upload.wikimedia.org/wikipedia/en/c/c0/Despicable_Me_%282010_animated_feature_film%29.jpg",
+        "director" => "Chris Renaud",
+        "mainactor" => "Steve Carell",
+        "imdb" => "https://www.imdb.com/title/tt1323594/",
+        "year" => 2010,
+        "genre" => "Animated Comedy"
     ],
     [
-        "title" => "",
-        "picture" => "",
-        "director" => "",
-        "mainactor" => "",
-        "imdb" => "",
-        "year" => 2005,
-        "genre" => ""
+        "title" => "The King's Speech",
+        "picture" => "https://upload.wikimedia.org/wikipedia/en/4/4a/The_King%27s_Speech_poster.jpg",
+        "director" => "Tom Hooper",
+        "mainactor" => "Colin Firth",
+        "imdb" => "https://www.imdb.com/title/tt1504320/",
+        "year" => 2010,
+        "genre" => "Historical Drama"
     ],
     [
-        "title" => "",
-        "picture" => "",
-        "director" => "",
-        "mainactor" => "",
-        "imdb" => "",
-        "year" => 2005,
-        "genre" => ""
+        "title" => "The Wild Robot",
+        "picture" => "https://upload.wikimedia.org/wikipedia/en/7/70/The_Wild_Robot_poster.jpg",
+        "director" => "Chris Sanders",
+        "mainactor" => "Lupita Nyong'o",
+        "imdb" => "https://www.imdb.com/title/tt29623480/",
+        "year" => 2024,
+        "genre" => "Animated Science Fiction"
     ],
     [
-        "title" => "",
-        "picture" => "",
-        "director" => "",
-        "mainactor" => "",
-        "imdb" => "",
-        "year" => 2005,
-        "genre" => ""
+        "title" => "King Arthur: Legend of the Sword",
+        "picture" => "https://upload.wikimedia.org/wikipedia/en/a/a4/King_Arthur_LotS_poster.jpg",
+        "director" => "Guy Ritchie",
+        "mainactor" => "Charlie Hunnam",
+        "imdb" => "https://www.imdb.com/title/tt1972591/",
+        "year" => 2017,
+        "genre" => "Epic Fantasy Action-Adventure"
     ],
     
 ];

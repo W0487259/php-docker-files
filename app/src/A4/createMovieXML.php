@@ -27,6 +27,8 @@ foreach($movies as $movie) {
 // Echoes the XML element object to a new XML file
 echo $xml->asXML("myFavouriteMovies.xml");
 
+// Display everything in a table (todo)
+
 
 /**
  * Sources: 
