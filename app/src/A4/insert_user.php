@@ -25,7 +25,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST["email"]);
     $subscribed = $_POST["newsletter"];
     
-
+    // Check for empty fields
+    // If yes: Echo everything and show which ones are empty
+    // Else: Send everything to the db and echo all users in a table
 
     $conn = new mysqli($host, $user, $pass, $name);
     if(!$conn) { // Check if the connection is valid
