@@ -6,14 +6,15 @@ include("conn.php");
  * Author: Evan van Oostrum
  * Date: 11/25/2024
  * 
- * Last edited: 11/27/2024
+ * Last edited: 11/30/2024
  * Filename: insert_user.php
  */
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "Connecting to the database server...<br/>";
+    echo "Checking user inputs...<br>";
 
-    // Grabs all 10 of the user inputs
+    // Grabs all 11 of the user inputs
+    $title = htmlspecialchars($_POST["title"]);
     $firstName = htmlspecialchars($_POST["firstName"]);
     $lastName = htmlspecialchars($_POST["lastName"]);
     $street = htmlspecialchars($_POST["street"]);
@@ -25,46 +26,81 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST["email"]);
     $subscribed = $_POST["newsletter"];
     
-    // Check for empty fields
-    // If yes: Echo everything and show which ones are empty
-    // Else: Send everything to the db and echo all users in a table
+    // Checks if any field besides newsletter is empty
+    // If there's a better way to do this, please tell me
+    if(empty($title) || empty($firstName) || empty($lastName) || empty($street)
+        || empty($city) || empty($province) || empty($postalCode)
+        || empty($country) || empty($phone) || empty($email)
+    ) { 
+        // If yes: Echo everything and show which ones are empty
+        echo "Error: One or more fields are empty.<br>";
+        foreach($_POST as $key => $value)
+        {
+            echo "$key → ";
+            if(empty($value)) {
+                echo "[Missing Information]";
+            } else {
+                echo "$value";
+            } 
+            echo "<br>";
+        }
 
-    $conn = new mysqli($host, $user, $pass, $name);
-    if(!$conn) { // Check if the connection is valid
-        die("Connection failed: " + mysqli_connect_error());
+    } else { 
+        // If no, insert a new user and echo all users in a table
+        echo "Connecting to the database server...<br/>";
+
+        $conn = new mysqli($host, $user, $pass, $name);
+        if(!$conn) { // Check if the connection is valid
+            die("Connection failed: " + mysqli_connect_error());
+        }
+
+        echo "Successfully connected to the server!";
+
+        // Prepare SQL statement and bind parameters to prevent SQL injections
+        $stmt = $conn->prepare(
+            "INSERT INTO registered_users (title, firstName, lastName, street, city, province, 
+            postalCode, country, phone, email, subscribed) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
+        );
+        
+        $stmt->bind_param("ssssssssssi", $title, $firstName, $lastName, $street,
+            $city, $province, $postalCode, $country, $phone, $email, $subscribed);
+
+        echo "<br>Title: $title<br>"
+            . "First name: $firstName<br>"
+            . "Last name: $lastName<br>"
+            . "Street: $street<br>"
+            . "City: $city<br>"
+            . "Province: $province<br>"
+            . "Postal Code: $postalCode<br>"
+            . "Country: $country<br>"
+            . "Phone: $phone<br>"
+            . "Email: $email<br>"
+            . "Is Subscribed: $subscribed<br>"
+            . "<br>";
+
+        $result = $stmt->execute();
+        if($result) {
+            echo "<h3>Success!</h3>";
+        } else {
+            echo "Error: Unable to insert user :(";
+        }
+
+        $conn->close();
     }
 
-    echo "Successfully connected to the server!";
+    
+    
 
-    // Prepare SQL statement and bind (bind parameters are used to help prevent SQL injections)
-    $stmt = $conn->prepare(
-        "INSERT INTO User (FirstName, LastName, Street, City, Province, 
-            PostalCode, Country, Phone, Email, Newsletter) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
-    );
-    $stmt->bind_param("sssssssssi", $firstName, $lastName, $street,
-        $city, $province, $postalCode, $country, $phone, $email, $subscribed);
+    
 
-    echo "<br>First name: " . $firstName . "<br>"
-        . "Last name: " . $lastName . "<br>"
-        . "Street: " . $street . "<br>"
-        . "City: " . $city . "<br>"
-        . "Province: " . $province . "<br>"
-        . "Postal Code: " . $postalCode . "<br>"
-        . "Country: " . $country . "<br>"
-        . "Phone: " . $phone . "<br>"
-        . "Email: " . $email . "<br>"
-        . "Is Subscribed: " . $subscribed . "<br>"
-        . "<br>";
-
-    $result = $stmt->execute();
-    if($result) {
-        echo "<h3>Success!</h3>";
-    } else {
-        echo "Error: Unable to insert user :(";
-    }
-
-    $conn->close();
-} else {
+} else { // Echoes an error if the user used the URL instead of POST
     echo "Error: You probably 'forgot' to press submit, right?";
 }
+
+
+/**
+ * Sources:
+ * https://www.sitepoint.com/community/t/-post-to-array/86483
+ * https://stackoverflow.com/questions/14245588/parse-the-first-level-keys-of-post-then-use-the-numeric-suffix-while-looping
+ */
