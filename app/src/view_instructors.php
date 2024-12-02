@@ -16,7 +16,7 @@ $conn = new mysqli($host, $user, $pass, $name);
     }
     $conn->close();
 
-// cols: ProgramId, Code, Title
+// cols: InstructorId, FirstName, LastName
 $col1 = 'InstructorId';
 $col2 = 'FirstName';
 $col3 = "LastName";

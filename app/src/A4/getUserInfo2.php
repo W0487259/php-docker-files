@@ -6,7 +6,7 @@ include("conn.php");
  * Author: Evan van Oostrum
  * Date: 11/30/2024
  * 
- * Last edited: 11/30/2024
+ * Last edited: 12/02/2024
  * Filename: getUserInfo2.php
 */
 
@@ -19,3 +19,8 @@ if(!$conn) { // Check if the connection is valid
 
 echo "Successfully connected to the server!";
 
+// Logic goes here
+
+
+// Close the connection
+$conn->close();

@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $country = htmlspecialchars($_POST["country"]);
     $phone = htmlspecialchars($_POST["phone"]);
     $email = htmlspecialchars($_POST["email"]);
-    $subscribed = $_POST["newsletter"];
+    $subscribed = isset($_POST["newsletter"]);
     
     // Checks if any field besides newsletter is empty
     // If there's a better way to do this, please tell me
@@ -58,8 +58,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Prepare SQL statement and bind parameters to prevent SQL injections
         $stmt = $conn->prepare(
-            "INSERT INTO registered_users (title, firstName, lastName, street, city, province, 
-            postalCode, country, phone, email, subscribed) 
+            "INSERT INTO registered_users (title, firstName, lastName, street, city, 
+            province, postalCode, country, phone, email, subscribed) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
         );
         
@@ -88,11 +88,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $conn->close();
     }
-
-    
-    
-
-    
 
 } else { // Echoes an error if the user used the URL instead of POST
     echo "Error: You probably 'forgot' to press submit, right?";
