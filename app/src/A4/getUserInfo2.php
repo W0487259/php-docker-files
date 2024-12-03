@@ -6,7 +6,7 @@ include("conn.php");
  * Author: Evan van Oostrum
  * Date: 11/30/2024
  * 
- * Last edited: 12/02/2024
+ * Last edited: 12/03/2024
  * Filename: getUserInfo2.php
 */
 
@@ -24,8 +24,7 @@ $all_users = array(); // Create array to store user information
 // Creates and executes SQL query to retrieve each user's id, first and last name
 $sql = "SELECT `user_id`, `firstName`, `lastName` FROM `registered_users`;";
 if ($result = $conn->query($sql)) {
-    while ($usr = $result->fetch_row()) {
-        $user_array[] = $usr;
+    while ($user_array = $result->fetch_row()) {
         array_push($all_users, $user_array);
     }
 } else {
@@ -41,15 +40,10 @@ echo "<table border=1>
 
 // Prints each user's ID, first name and last name in a row
 for($r = 0; $r < sizeof($all_users); $r++) {
-    $col = $all_users[$r];
-
-    echo "<tr><td>" . $col[$r][0]
-        . "</td><td>" . $col[$r][1] 
-        . "</td><td>" . $col[$r][2] 
+    echo "<tr><td>" . $all_users[$r][0]
+        . "</td><td>" . $all_users[$r][1] 
+        . "</td><td>" . $all_users[$r][2] 
         . "</td></tr>";
-        // echo $col[$r];
-        // echo $all_users[$r][$r][0];
-        // This works, but ask David for help optimizing it
 }
 
 echo "</table>";

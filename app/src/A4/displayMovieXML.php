@@ -6,7 +6,7 @@
         Author: Evan van Oostrum
         Date: 11/29/2024
 
-        Last edited: 12/02/2024
+        Last edited: 12/03/2024
         Filename: displayMovieXML.php
     -->
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
 
     // Loops through the movie elements
     $counter = 0;
-    foreach($xml->children() as $movies) {
+    foreach($xml->children() as $movie) {
         // Creates a new row every 3 movies
         if($counter % 3 == 0) {
             if($counter != 0) {echo "</tr>";}
@@ -31,12 +31,12 @@
 
         // Prints the movie information to the cell
         echo "<td>";
-        echo "<a href='" . $movies->imdb . "'>
-            <img src='" . $movies->picture . "'></a>";
-        echo "<h1>".$movies->title." (".$movies->year.")"."</h1>";
-        echo "Director: " . $movies->director . "<br>";
-        echo "Main Actor: " . $movies->mainactor . "<br>";
-        echo "Genre: " . $movies->genre;
+        echo "<a href='" . $movie->imdb . "'>
+            <img src='" . $movie->picture . "'></a>";
+        echo "<h1>".$movie->title." (".$movie->year.")"."</h1>";
+        echo "Director: " . $movie->director . "<br>";
+        echo "Main Actor: " . $movie->mainactor . "<br>";
+        echo "Genre: " . $movie->genre;
         echo "</td>";
 
         $counter++;
