@@ -17,10 +17,48 @@ if(!$conn) { // Check if the connection is valid
     die("Connection failed: " + mysqli_connect_error());
 }
 
-echo "Successfully connected to the server!";
+echo "Successfully connected to the server!<br>";
 
-// Logic goes here
+$all_users = array(); // Create array to store user information
 
+// Creates and executes SQL query to retrieve each user's id, first and last name
+$sql = "SELECT `user_id`, `firstName`, `lastName` FROM `registered_users`;";
+if ($result = $conn->query($sql)) {
+    while ($usr = $result->fetch_row()) {
+        $user_array[] = $usr;
+        array_push($all_users, $user_array);
+    }
+} else {
+    echo "Error: The query failed :(";
+}
+
+// Creates the table header
+echo "<table border=1>
+    <tr><th>ID</th>
+    <th>First name</th>
+    <th>Last name</th>
+</tr>";
+
+// Prints each user's ID, first name and last name in a row
+for($r = 0; $r < sizeof($all_users); $r++) {
+    $col = $all_users[$r];
+
+    echo "<tr><td>" . $col[$r][0]
+        . "</td><td>" . $col[$r][1] 
+        . "</td><td>" . $col[$r][2] 
+        . "</td></tr>";
+        // echo $col[$r];
+        // echo $all_users[$r][$r][0];
+        // This works, but ask David for help optimizing it
+}
+
+echo "</table>";
 
 // Close the connection
 $conn->close();
+
+
+/**
+ * Sources used:
+ * https://www.w3schools.com/php/php_mysql_select.asp
+ */
