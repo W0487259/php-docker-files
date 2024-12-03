@@ -9,4 +9,4 @@ $user = "root";
 $pass = "super_secret123?";
 
 // Database name
-$name = 'assignment4';
+$name = 'AO5';

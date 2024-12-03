@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        Login Form for Assignment 5
+        Author: Evan van Oostrum
+        Date: 12/03/2024
+
+        Last edited: 12/03/2024
+        Filename: loginForm.html
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Login</title>
+</head>
+<body>
+    <h1>Log into [The] Account</h1>
+    <h3>(do it!)</h3>
+    <form action="authenticate.php" method="post">
+        <label for="username">Username:</label>
+        <input id="username" name="username" required type="text" />
+        <br>
+        <label for="password">Password:</label> 
+        <input id="password" name="password" required type="password" />
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.onkeydown = keydown;
+        function keydown(evt){
+            if(!evt) {evt = event;} 
+            if((evt.ctrlKey && evt.shiftKey && (evt.keyCode == 67 || evt.keyCode == 74))
+                || (evt.keyCode == 123) ){ 
+                alert("This shortcut is deprecated, try using the new shortcut instead: CTRL+Shift+I"); 
+                event.preventDefault();
+            }
+        }
+        // https://stackoverflow.com/questions/1727812
+    </script>
+</body>
+</html>
