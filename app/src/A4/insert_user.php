@@ -78,15 +78,63 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             . "Email: $email<br>"
             . "Is Subscribed: $subscribed<br>"
             . "<br>";
-
         $result = $stmt->execute();
+
+        // If the query is successful, display all currently registered users
         if($result) {
             echo "<h3>Success!</h3>";
+            
+            // Create and execute query to get all information from registered_users
+            $sql = 'SELECT * FROM registered_users';
+            if ($result = $conn->query($sql)) {
+                while ($data = $result->fetch_object()) {
+                    $users[] = $data;
+                }
+            }
+
+            // Display headers for every column in the table
+            echo "<table border='1'><tr>
+                <th>user_id</th>
+                <th>title</th>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>street</th>
+                <th>city</th>
+                <th>province</th>
+                <th>postalCode</th>
+                <th>country</th>
+                <th>phone</th>
+                <th>email</th>
+                <th>subscribed</th>                    
+            </tr>";
+
+            // Print each user's information into a table row
+            foreach($users as $usr) {
+                echo "<tr>";
+                echo "<td>$usr->user_id</td>";
+                echo "<td>$usr->title</td>";
+                echo "<td>$usr->firstName</td>";
+                echo "<td>$usr->lastName</td>";
+                echo "<td>$usr->street</td>";
+                echo "<td>$usr->city</td>";
+                echo "<td>$usr->province</td>";
+                echo "<td>$usr->postalCode</td>";
+                echo "<td>$usr->country</td>";
+                echo "<td>$usr->phone</td>";
+                echo "<td>$usr->email</td>";
+                echo "<td>$usr->subscribed</td>";
+                echo "</tr>";
+            }
+
+            echo "</table>";
+
         } else {
             echo "Error: Unable to insert user :(";
         }
 
+        // Close the connection to the database
         $conn->close();
+        
     }
 
 } else { // Echoes an error if the user used the URL instead of POST
