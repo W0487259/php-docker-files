@@ -41,9 +41,4 @@ foreach($last_name_array as $lastName) {
     echo $lastName . "<br>";
 }
 
-/**
- * Sources used:
- * https://www.w3schools.com/php/func_array_column.asp
- */
-
 ?>

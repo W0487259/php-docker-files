@@ -92,10 +92,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 } else { // Echoes an error if the user used the URL instead of POST
     echo "Error: You probably 'forgot' to press submit, right?";
 }
-
-
-/**
- * Sources:
- * https://www.sitepoint.com/community/t/-post-to-array/86483
- * https://stackoverflow.com/questions/14245588/parse-the-first-level-keys-of-post-then-use-the-numeric-suffix-while-looping
- */

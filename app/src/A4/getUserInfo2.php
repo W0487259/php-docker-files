@@ -57,8 +57,4 @@ echo "</table>";
 // Close the connection
 $conn->close();
 
-
-/**
- * Sources used:
- * https://www.w3schools.com/php/php_mysql_select.asp
- */
+?>

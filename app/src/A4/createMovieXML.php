@@ -26,12 +26,3 @@ foreach($movies as $movie) {
 
 // Echoes the XML element object to a new XML file
 echo $xml->asXML("myFavouriteMovies.xml");
-
-// Display everything in a table (todo)
-
-
-/**
- * Sources: 
- * https://www.geeksforgeeks.org/how-to-use-foreach-loop-with-multidimensional-arrays-in-php/
- * https://www.youtube.com/watch?v=970v0PftFZE
- */

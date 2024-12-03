@@ -1,34 +1,48 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        Display Movie XML Script
+        Author: Evan van Oostrum
+        Date: 11/29/2024
 
-/**
- * Display Movie XML Script
- * Author: Evan van Oostrum
- * Date: 11/29/2024
- * 
- * Last edited: 12/02/2024
- * Filename: displayMovieXML.php
-*/
+        Last edited: 12/02/2024
+        Filename: displayMovieXML.php
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="movieStyles.css">
+</head>
+<body>
+    <?php
+    $xml = simplexml_load_file("myFavouriteMovies.xml") or die("Error: File cannot be found.");
 
-$xml = simplexml_load_file("myFavouriteMovies.xml")
-    or die("Error: File cannot be found.");
+    echo "<h1>Favourite Movies</h1><table border=1>";
 
-// echo $xml->movie[0]->title;
+    // Loops through the movie elements
+    $counter = 0;
+    foreach($xml->children() as $movies) {
+        // Creates a new row every 3 movies
+        if($counter % 3 == 0) {
+            if($counter != 0) {echo "</tr>";}
+            echo "<tr>";
+        } 
 
-foreach($xml->children() as $movies) {
-    echo $movies->title . "<br>";
-    // echo  "<img src='" . $movies->picture . "'><br>";
-    echo "this_is_an_image_link" . "<br>";
-    echo $movies->director . "<br>";
-    echo $movies->mainactor . "<br>";
-    echo $movies->imdb . "<br>";
-    echo $movies->year . "<br>";
-    echo $movies->genre . "<br>";
-}
+        // Prints the movie information to the cell
+        echo "<td>";
+        echo "<a href='" . $movies->imdb . "'>
+            <img src='" . $movies->picture . "'></a>";
+        echo "<h1>".$movies->title." (".$movies->year.")"."</h1>";
+        echo "Director: " . $movies->director . "<br>";
+        echo "Main Actor: " . $movies->mainactor . "<br>";
+        echo "Genre: " . $movies->genre;
+        echo "</td>";
 
+        $counter++;
+    }
+    echo "</table>";
 
-/**
- * Sources:
- * https://www.w3schools.com/php/php_xml_simplexml_read.asp
-*/
-
-?>
+    ?>
+</body>
+</html>
