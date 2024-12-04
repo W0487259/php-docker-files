@@ -10,4 +10,7 @@
 */
 
 
+echo "Hello! You must've logged in somehow to get here!<br>";
+echo "You should check login_sessions to make sure this did something.";
+
 ?>

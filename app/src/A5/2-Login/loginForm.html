@@ -23,7 +23,7 @@
         <label for="password">Password:</label> 
         <input id="password" name="password" required type="password" />
         <br>
-        <button type="submit">Submit</button>
+        <button type="submit" name="login">Submit</button>
     </form>
     <script>
         document.onkeydown = keydown;
@@ -31,11 +31,10 @@
             if(!evt) {evt = event;} 
             if((evt.ctrlKey && evt.shiftKey && (evt.keyCode == 67 || evt.keyCode == 74))
                 || (evt.keyCode == 123) ){ 
-                alert("This shortcut is deprecated, try using the new shortcut instead: CTRL+Shift+I"); 
+                alert("This shortcut is deprecated, try using the new shortcut instead: Ctrl+Shift+I"); 
                 event.preventDefault();
             }
         }
-        // https://stackoverflow.com/questions/1727812
     </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-# Sources used for Assignment 4
+# Sources used for Assignment 5
 ## Name: Evan van Oostrum
 ## Date: December 3rd, 2024
 
@@ -8,3 +8,9 @@ createMovieXML.php:
 
 movie.php:
 * https://www.imdb.com/
+
+loginForm.html:
+* https://stackoverflow.com/questions/1727812
+
+authentication.php:
+* https://www.sitepoint.com/create-a-php-login-system/
