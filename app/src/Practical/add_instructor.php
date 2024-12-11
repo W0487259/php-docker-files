@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <!-- 
-    Add Room File
+    Add Instructor File
     Author: Evan van Oostrum
     Date: 10/30/2024
 
-    Last edited: 11/04/2024
-    Filename: add_room.php
+    Last edited: 12/11/2024
+    Filename: add_instructor.php
     -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
