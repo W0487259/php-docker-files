@@ -17,7 +17,7 @@
 <body>
     <form action="login.php" method="post">
         <label for="username">Username:</label>
-        <input id="username" name="username" required="" type="text" />
+        <input id="username" name="username" required="" type="text" /><br>
         <label for="password">Password:</label> <input id="password" name="password" required="" type="password" />
         <input name="login" type="submit" value="login" />
     </form>
@@ -36,13 +36,13 @@ if (isset($_POST['login'])) {
         die("Connection failed: " . $mysqli->connect_error); 
     } 
 
-    // Prepare and bind the SQL statement 
-    $stmt = $conn->prepare("SELECT id, password FROM users WHERE username = ?"); 
-    $stmt->bind_param("s", $username); 
-
     // Get the form data 
     $username = $_POST['username']; 
     $password = $_POST['password']; 
+
+    // Prepare and bind the SQL statement 
+    $stmt = $conn->prepare("SELECT id, password FROM users WHERE username = ?"); 
+    $stmt->bind_param("s", $username); 
 
     // Execute the SQL statement 
     $stmt->execute(); 
