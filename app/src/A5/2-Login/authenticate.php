@@ -5,7 +5,7 @@
  * Author: Evan van Oostrum
  * Date: 12/03/2024
  * 
- * Last edited: 12/03/2024
+ * Last edited: 12/16/2024
  * Filename: authenticate.php
 */
 session_start(); 
@@ -39,8 +39,6 @@ if (isset($_POST['login'])) {
         $stmt->bind_result($id, $usr, $pwd); 
         $stmt->fetch(); 
 
-        // echo $id . " " . $usr . " " . $pwd;
-
         // Generate a session_id
         $session_id = session_id();
         $_SESSION["session_id"] = $session_id;
@@ -55,13 +53,13 @@ if (isset($_POST['login'])) {
         $stmt->bind_param("isi", $_SESSION['user_id'], $_SESSION["session_id"], $_SESSION['last_access_time']); 
         $stmt->execute();
 
+        // If the sql query is successful
         if($stmt) {
             // Redirects to admin.php
             header("Location: admin.php");
         } else {
             echo "Error: Login session failed.";
         }
-        // print_r($_SESSION);
         
     } else {
         // If the login fails, redirect the user back to the form
@@ -72,26 +70,5 @@ if (isset($_POST['login'])) {
     $conn->close(); 
     
 }
-
-/**
- * Grocery List:
- * Create a file called authenticate.php. This program will
- * retrieve the username and password and check for a matching
- * record in the users table. DONE
- * 
- * If no match is found, redirect back to the login page. DONE
- * If a match is found, implement the following functionality:
- * = retrieve the user_id of the matching record;
- * - generate a session_id;
- * - set the user_id and session_id as session variables;
- * - send the user_id, session_id, and current time to the login_sessions table;
- * = redirect to admin.php
- * 
- * 
- * 
- * 
- */
-
-
 
 ?>
